@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rahul & Antara — 7th August 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#08050F;
+  --deep:#0D0818;
+  --gold:#D4A853;
+  --gold2:#F0C878;
+  --rose:#C4607A;
+  --ivory:#F5EFE6;
+  --muted:#9B8EA8;
+  --card-bg:rgba(255,255,255,0.035);
+  --card-border:rgba(212,168,83,0.18);
+}
+body{
+  background:var(--bg);
+  color:var(--ivory);
+  font-family:'Outfit',sans-serif;
+  font-weight:300;
+  overflow-x:hidden;
+}
+
+/* ── CANVAS BG ── */
+#bg-canvas{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  z-index:0;pointer-events:none;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;width:100%;z-index:200;
+  padding:20px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(8,5,15,0.6);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(212,168,83,0.12);
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;font-weight:400;letter-spacing:0.12em;
+  color:var(--gold);
+  text-shadow:0 0 20px rgba(212,168,83,0.4);
+}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{
+  text-decoration:none;color:var(--muted);
+  font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;
+  transition:color 0.3s,text-shadow 0.3s;
+}
+.nav-links a:hover{color:var(--gold);text-shadow:0 0 12px rgba(212,168,83,0.5)}
+
+/* ── HERO ── */
+.hero{
+  position:relative;z-index:10;
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+  padding:120px 24px 80px;
+  perspective:1000px;
+}
+.hero-badge{
+  font-size:0.6rem;letter-spacing:0.45em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:32px;
+  border:1px solid rgba(212,168,83,0.3);
+  padding:8px 24px;border-radius:40px;
+  background:rgba(212,168,83,0.06);
+  backdrop-filter:blur(8px);
+  animation:fadeUp 1s ease both;
+}
+.hero-names{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(4rem,11vw,9rem);
+  font-weight:300;line-height:0.95;
+  animation:fadeUp 1s 0.1s ease both;
+  transform-style:preserve-3d;
+}
+.name-rahul{
+  display:block;
+  background:linear-gradient(135deg,#F0C878,#D4A853,#C4607A);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  filter:drop-shadow(0 0 30px rgba(212,168,83,0.35));
+}
+.name-amp{
+  display:block;font-style:italic;
+  font-size:clamp(2rem,5vw,4rem);
+  color:rgba(212,168,83,0.5);
+  margin:4px 0;letter-spacing:0.1em;
+}
+.name-antara{
+  display:block;font-style:italic;
+  background:linear-gradient(135deg,#C4607A,#D4A853,#F0C878);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  filter:drop-shadow(0 0 30px rgba(196,96,122,0.35));
+}
+.hero-date{
+  margin-top:40px;
+  font-size:0.72rem;letter-spacing:0.4em;text-transform:uppercase;
+  color:var(--muted);
+  animation:fadeUp 1s 0.2s ease both;
+}
+.hero-venue{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.1rem,2.5vw,1.6rem);
+  font-style:italic;color:rgba(245,239,230,0.5);
+  margin-top:8px;
+  animation:fadeUp 1s 0.25s ease both;
+}
+.hero-welcome{
+  max-width:500px;margin-top:32px;
+  font-size:0.88rem;line-height:2;
+  color:rgba(245,239,230,0.45);
+  animation:fadeUp 1s 0.35s ease both;
+}
+.hero-scroll{
+  margin-top:56px;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  animation:fadeUp 1s 0.5s ease both;
+}
+.hero-scroll span{font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted)}
+.scroll-line{
+  width:1px;height:48px;
+  background:linear-gradient(to bottom,var(--gold),transparent);
+  animation:scrollPulse 2s ease-in-out infinite;
+}
+
+/* ── COUNTDOWN ── */
+.countdown-wrap{
+  position:relative;z-index:10;
+  padding:80px 24px;
+  background:linear-gradient(180deg,transparent,rgba(212,168,83,0.04),transparent);
+  text-align:center;
+}
+.cd-label{
+  font-size:0.62rem;letter-spacing:0.4em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:48px;opacity:0.7;
+}
+.cd-grid{
+  display:flex;justify-content:center;
+  gap:clamp(12px,4vw,48px);flex-wrap:wrap;
+}
+.cd-unit{
+  position:relative;
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:16px;
+  padding:32px 28px 24px;
+  min-width:110px;
+  backdrop-filter:blur(16px);
+  transition:transform 0.4s,box-shadow 0.4s;
+  transform-style:preserve-3d;
+}
+.cd-unit:hover{
+  transform:translateY(-6px) rotateX(4deg);
+  box-shadow:0 24px 48px rgba(212,168,83,0.12),0 0 0 1px rgba(212,168,83,0.25);
+}
+.cd-unit::before{
+  content:'';position:absolute;inset:0;border-radius:16px;
+  background:linear-gradient(135deg,rgba(212,168,83,0.08),transparent);
+  pointer-events:none;
+}
+.cd-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3rem,8vw,5.5rem);font-weight:300;line-height:1;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  display:block;
+}
+.cd-word{
+  font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;
+  color:var(--muted);margin-top:10px;display:block;
+}
+.cd-sep{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,5vw,4rem);
+  color:rgba(212,168,83,0.25);
+  align-self:center;padding-bottom:16px;
+}
+
+/* ── SECTIONS ── */
+.section{position:relative;z-index:10;padding:100px 24px}
+.s-inner{max-width:960px;margin:0 auto}
+.s-eyebrow{
+  font-size:0.6rem;letter-spacing:0.4em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:16px;text-align:center;
+}
+.s-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.2rem,5vw,3.6rem);font-weight:300;
+  text-align:center;margin-bottom:64px;
+  background:linear-gradient(135deg,var(--ivory),rgba(245,239,230,0.6));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+/* ── EVENTS ── */
+.events-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
+}
+.event-card{
+  position:relative;overflow:hidden;
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:20px;
+  padding:48px 36px 40px;
+  text-align:center;
+  backdrop-filter:blur(20px);
+  transition:transform 0.5s cubic-bezier(0.23,1,0.32,1),box-shadow 0.5s;
+  transform-style:preserve-3d;
+  cursor:default;
+}
+.event-card::after{
+  content:'';position:absolute;
+  inset:-1px;border-radius:20px;
+  background:linear-gradient(135deg,rgba(212,168,83,0.15),transparent 50%,rgba(196,96,122,0.1));
+  opacity:0;transition:opacity 0.4s;pointer-events:none;
+}
+.event-card:hover{
+  transform:translateY(-10px) rotateX(4deg) rotateY(-2deg);
+  box-shadow:0 32px 64px rgba(0,0,0,0.5),0 0 0 1px rgba(212,168,83,0.3),inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.event-card:hover::after{opacity:1}
+.event-glow{
+  position:absolute;top:-40px;left:50%;transform:translateX(-50%);
+  width:120px;height:120px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,168,83,0.15),transparent 70%);
+  pointer-events:none;
+}
+.event-icon-wrap{
+  width:64px;height:64px;margin:0 auto 24px;
+  background:linear-gradient(135deg,rgba(212,168,83,0.15),rgba(196,96,122,0.1));
+  border:1px solid rgba(212,168,83,0.2);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;
+  transition:transform 0.4s,box-shadow 0.4s;
+}
+.event-card:hover .event-icon-wrap{
+  transform:translateZ(20px) scale(1.1);
+  box-shadow:0 8px 24px rgba(212,168,83,0.25);
+}
+.event-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.65rem;font-weight:400;
+  color:var(--ivory);margin-bottom:12px;
+}
+.event-date-tag{
+  font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:18px;
+}
+.event-desc{font-size:0.82rem;line-height:1.9;color:var(--muted)}
+
+/* ── VENUE ── */
+.venue-section{background:linear-gradient(180deg,transparent,rgba(196,96,122,0.03),transparent)}
+.venue-layout{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:48px;align-items:start;
+}
+.venue-card{
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:20px;padding:48px 40px;
+  backdrop-filter:blur(20px);
+  transition:transform 0.5s cubic-bezier(0.23,1,0.32,1),box-shadow 0.5s;
+}
+.venue-card:hover{
+  transform:translateY(-6px) rotateY(2deg);
+  box-shadow:0 32px 64px rgba(0,0,0,0.4),0 0 0 1px rgba(212,168,83,0.2);
+}
+.venue-card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;font-weight:300;
+  color:var(--ivory);margin-bottom:32px;
+}
+.venue-row{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:20px 0;border-bottom:1px solid rgba(212,168,83,0.1);
+}
+.venue-row:last-child{border-bottom:none;padding-bottom:0}
+.v-icon{font-size:1.1rem;flex-shrink:0;margin-top:2px;opacity:0.8}
+.v-label{
+  font-size:0.58rem;letter-spacing:0.25em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:6px;opacity:0.8;
+}
+.v-val{font-size:0.88rem;line-height:1.8;color:rgba(245,239,230,0.7)}
+.map-btn{
+  display:inline-flex;align-items:center;gap:10px;margin-top:12px;
+  padding:12px 28px;border-radius:40px;
+  border:1px solid rgba(212,168,83,0.4);
+  background:rgba(212,168,83,0.06);
+  color:var(--gold);text-decoration:none;
+  font-size:0.66rem;letter-spacing:0.2em;text-transform:uppercase;
+  transition:all 0.3s;backdrop-filter:blur(8px);
+}
+.map-btn:hover{
+  background:rgba(212,168,83,0.15);
+  border-color:var(--gold);
+  box-shadow:0 0 20px rgba(212,168,83,0.2);
+  transform:translateY(-2px);
+}
+.map-embed-wrap{
+  border-radius:20px;overflow:hidden;
+  border:1px solid rgba(212,168,83,0.15);
+  height:100%;min-height:400px;
+  box-shadow:0 24px 48px rgba(0,0,0,0.4);
+  transition:transform 0.5s cubic-bezier(0.23,1,0.32,1),box-shadow 0.5s;
+}
+.map-embed-wrap:hover{
+  transform:translateY(-6px) rotateY(-2deg);
+  box-shadow:0 40px 80px rgba(0,0,0,0.5),0 0 0 1px rgba(212,168,83,0.2);
+}
+.map-embed-wrap iframe{width:100%;height:100%;min-height:400px;border:none;display:block;filter:invert(90%) hue-rotate(180deg) saturate(0.7) brightness(0.85);}
+
+/* ── FOOTER ── */
+footer{
+  position:relative;z-index:10;
+  padding:80px 24px 56px;text-align:center;
+  border-top:1px solid rgba(212,168,83,0.1);
+}
+.footer-monogram{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3rem;font-style:italic;font-weight:300;
+  background:linear-gradient(135deg,var(--gold2),var(--gold),var(--rose));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:16px;
+  filter:drop-shadow(0 0 24px rgba(212,168,83,0.3));
+}
+.footer-sub{
+  font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:8px;
+}
+.footer-date-line{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;font-style:italic;
+  color:rgba(245,239,230,0.3);
+}
+
+/* ── QR CODE ── */
+.qr-wrap{
+  margin-top:12px;
+  display:inline-flex;flex-direction:column;align-items:center;gap:8px;
+}
+#qr-canvas{
+  border-radius:12px;
+  padding:10px;
+  background:#fff;
+  box-shadow:0 8px 24px rgba(0,0,0,0.4),0 0 0 1px rgba(212,168,83,0.2);
+  width:120px!important;height:120px!important;
+}
+.qr-hint{
+  font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--muted);opacity:0.7;
+}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(36px) rotateX(8deg);transition:opacity 0.9s ease,transform 0.9s ease;transform-origin:top center}
+.reveal.visible{opacity:1;transform:translateY(0) rotateX(0)}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scrollPulse{0%,100%{opacity:1;transform:scaleY(1)}50%{opacity:0.3;transform:scaleY(0.6)}}
+@keyframes rotate3d{0%{transform:rotateY(0deg) rotateX(0deg)}25%{transform:rotateY(3deg) rotateX(2deg)}50%{transform:rotateY(0deg) rotateX(0deg)}75%{transform:rotateY(-3deg) rotateX(-2deg)}100%{transform:rotateY(0deg) rotateX(0deg)}}
+@keyframes particleDrift{0%{transform:translateY(0) translateX(0) scale(1);opacity:0.7}50%{transform:translateY(-30px) translateX(15px) scale(1.2);opacity:1}100%{transform:translateY(0) translateX(0) scale(1);opacity:0.7}}
+
+/* ── MOBILE ── */
+@media(max-width:700px){
+  nav{padding:14px 20px}
+  .nav-links{gap:18px}
+  .venue-layout{grid-template-columns:1fr}
+  .cd-sep{display:none}
+  .nav-links a{font-size:0.6rem}
+}
+@media(max-width:440px){.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<nav>
+  <div class="nav-logo">R &amp; A</div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#venue">Venue</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-badge">We are getting married</div>
+  <div class="hero-names" id="hero3d">
+    <span class="name-rahul">Rahul</span>
+    <span class="name-amp">&amp;</span>
+    <span class="name-antara">Antara</span>
+  </div>
+  <p class="hero-date">7th August 2026</p>
+  <p class="hero-venue">Langulia, Suri, Birbhum</p>
+  <p class="hero-welcome">Welcome to the official page of our marriage. We are overjoyed to celebrate this beautiful journey with you — surrounded by love, family, and new beginnings.</p>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<div class="countdown-wrap" id="countdown">
+  <p class="cd-label reveal">Counting down to the big day</p>
+  <div class="cd-grid reveal">
+    <div class="cd-unit"><span class="cd-num" id="cd-d">--</span><span class="cd-word">Days</span></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-unit"><span class="cd-num" id="cd-h">--</span><span class="cd-word">Hours</span></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-unit"><span class="cd-num" id="cd-m">--</span><span class="cd-word">Minutes</span></div>
+    <div class="cd-sep">:</div>
+    <div class="cd-unit"><span class="cd-num" id="cd-s">--</span><span class="cd-word">Seconds</span></div>
+  </div>
+</div>
+
+<!-- EVENTS -->
+<section class="section" id="events">
+  <div class="s-inner">
+    <p class="s-eyebrow reveal">Save the dates</p>
+    <h2 class="s-title reveal">Wedding Events</h2>
+    <div class="events-grid reveal">
+      <div class="event-card">
+        <div class="event-glow"></div>
+        <div class="event-icon-wrap">🌼</div>
+        <h3 class="event-name">Haldi Ceremony</h3>
+        <p class="event-date-tag">Friday · 7th August 2026</p>
+      </div>
+      <div class="event-card">
+        <div class="event-glow"></div>
+        <div class="event-icon-wrap">💍</div>
+        <h3 class="event-name">Wedding Ceremony</h3>
+        <p class="event-date-tag">Friday · 7th August 2026</p>
+      </div>
+      <div class="event-card">
+        <div class="event-glow"></div>
+        <div class="event-icon-wrap">🥂</div>
+        <h3 class="event-name">Reception</h3>
+        <p class="event-date-tag">Saturday · 8th August 2026</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VENUE -->
+<section class="section venue-section" id="venue">
+  <div class="s-inner">
+    <p class="s-eyebrow reveal">Find your way to us</p>
+    <h2 class="s-title reveal">Venue Details</h2>
+    <div class="venue-layout reveal">
+      <div class="venue-card">
+        <h3>Langulia, Suri</h3>
+        <div class="venue-row">
+          <span class="v-icon">📍</span>
+          <div>
+            <p class="v-label">Full Address</p>
+            <p class="v-val">Langulia, Suri<br>Birbhum — 731103<br>West Bengal, India</p>
+          </div>
+        </div>
+        <div class="venue-row">
+          <span class="v-icon">📅</span>
+          <div>
+            <p class="v-label">Event Dates</p>
+            <p class="v-val">7th August 2026 — Haldi &amp; Wedding<br>8th August 2026 — Reception</p>
+          </div>
+        </div>
+        <div class="venue-row">
+          <span class="v-icon">🗺️</span>
+          <div>
+            <p class="v-label">Directions</p>
+            <a class="map-btn" href="https://maps.app.goo.gl/PYqjhV2SZY3Ekq7v6" target="_blank" rel="noopener">Open in Google Maps →</a>
+          </div>
+        </div>
+        <div class="venue-row">
+          <span class="v-icon">📲</span>
+          <div>
+            <p class="v-label">Scan to Navigate</p>
+            <div class="qr-wrap">
+              <div id="qr-canvas"></div>
+              <p class="qr-hint">Scan with your phone camera</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="map-embed-wrap">
+        <iframe
+          src="https://maps.google.com/maps?q=Langulia,+Suri,+Birbhum,+West+Bengal+731103&output=embed"
+          allowfullscreen loading="lazy" title="Wedding Venue"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-monogram">Rahul &amp; Antara</div>
+  <p class="footer-sub">Two hearts · One forever</p>
+  <p class="footer-date-line">7th August 2026 · Langulia, Suri, Birbhum</p>
+</footer>
+
+<script>
+// ── 3D PARTICLE CANVAS ──
+(function(){
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles=[], rings=[];
+
+  function resize(){
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const GOLD='rgba(212,168,83,', ROSE='rgba(196,96,122,', WHITE='rgba(245,239,230,';
+  const colors=[GOLD,ROSE,WHITE];
+  for(let i=0;i<120;i++){
+    particles.push({
+      x:Math.random()*2000-500,
+      y:Math.random()*1200,
+      z:Math.random()*1200,
+      vx:(Math.random()-0.5)*0.25,
+      vy:(Math.random()-0.5)*0.15,
+      vz:(Math.random()-0.5)*0.4,
+      r:Math.random()*1.8+0.4,
+      color:colors[Math.floor(Math.random()*3)],
+      twinkle:Math.random()*Math.PI*2,
+      twinkleSpeed:0.02+Math.random()*0.03
+    });
+  }
+
+  for(let i=0;i<6;i++){
+    rings.push({
+      x:Math.random()*W,
+      y:Math.random()*H,
+      radius:80+Math.random()*120,
+      rotX:Math.random()*Math.PI,
+      rotY:Math.random()*Math.PI,
+      speed:0.002+Math.random()*0.003,
+      alpha:0.03+Math.random()*0.05
+    });
+  }
+
+  let mouseX=W/2, mouseY=H/2;
+  document.addEventListener('mousemove',e=>{mouseX=e.clientX;mouseY=e.clientY});
+
+  let t=0;
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    t+=0.008;
+
+    const cx=W/2, cy=H/2;
+    ctx.save();
+    ctx.strokeStyle='rgba(212,168,83,0.025)';
+    ctx.lineWidth=1;
+    for(let g=-5;g<=5;g++){
+      const px=(g/5)*W*0.8;
+      ctx.beginPath();
+      ctx.moveTo(cx+px*0.2,cy+H*0.1);
+      ctx.lineTo(cx+px,cy+H*0.6);
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    rings.forEach(r=>{
+      r.rotY+=r.speed;
+      const scaleY=Math.abs(Math.sin(r.rotX+t));
+      ctx.save();
+      ctx.translate(r.x,r.y);
+      ctx.scale(1,scaleY*0.4+0.1);
+      ctx.beginPath();
+      ctx.arc(0,0,r.radius,0,Math.PI*2);
+      ctx.strokeStyle=`rgba(212,168,83,${r.alpha})`;
+      ctx.lineWidth=1;
+      ctx.stroke();
+      ctx.restore();
+      r.y += Math.sin(t+r.rotX)*0.15;
+    });
+
+    const parallaxX=(mouseX/W-0.5)*0.03;
+    const parallaxY=(mouseY/H-0.5)*0.03;
+    particles.forEach(p=>{
+      p.x+=p.vx+(parallaxX*(p.z/600));
+      p.y+=p.vy+(parallaxY*(p.z/600));
+      p.z+=p.vz;
+      p.twinkle+=p.twinkleSpeed;
+      if(p.x<-100)p.x=W+100;if(p.x>W+100)p.x=-100;
+      if(p.y<-100)p.y=H+100;if(p.y>H+100)p.y=-100;
+      if(p.z<10)p.z=1200;if(p.z>1200)p.z=10;
+
+      const scale=600/(600+p.z);
+      const sx=p.x*scale+(W/2)*(1-scale);
+      const sy=p.y*scale+(H/2)*(1-scale);
+      const sr=p.r*scale*2.5;
+      const alpha=(0.4+0.5*Math.sin(p.twinkle))*scale;
+
+      ctx.beginPath();
+      ctx.arc(sx,sy,Math.max(0.1,sr),0,Math.PI*2);
+      ctx.fillStyle=p.color+alpha+')';
+      ctx.fill();
+
+      if(p.z<200){
+        ctx.beginPath();
+        ctx.arc(sx,sy,sr*3,0,Math.PI*2);
+        const g=ctx.createRadialGradient(sx,sy,0,sx,sy,sr*3);
+        g.addColorStop(0,p.color+(alpha*0.3)+')');
+        g.addColorStop(1,p.color+'0)');
+        ctx.fillStyle=g;
+        ctx.fill();
+      }
+    });
+
+    for(let i=0;i<particles.length;i++){
+      for(let j=i+1;j<particles.length;j++){
+        const a=particles[i],b=particles[j];
+        const dx=a.x-b.x,dy=a.y-b.y,dz=a.z-b.z;
+        const dist=Math.sqrt(dx*dx+dy*dy+dz*dz);
+        if(dist<180&&a.z<400&&b.z<400){
+          const scale=600/(600+Math.min(a.z,b.z));
+          const sx1=a.x*scale+(W/2)*(1-scale);
+          const sy1=a.y*scale+(H/2)*(1-scale);
+          const sx2=b.x*scale+(W/2)*(1-scale);
+          const sy2=b.y*scale+(H/2)*(1-scale);
+          ctx.beginPath();
+          ctx.moveTo(sx1,sy1);
+          ctx.lineTo(sx2,sy2);
+          ctx.strokeStyle=`rgba(212,168,83,${(1-dist/180)*0.06*scale})`;
+          ctx.lineWidth=0.5;
+          ctx.stroke();
+        }
+      }
+    }
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ── COUNTDOWN ──
+function tick(){
+  const target=new Date('2026-08-07T00:00:00+05:30').getTime();
+  const now=Date.now();
+  const diff=target-now;
+  if(diff<=0){['cd-d','cd-h','cd-m','cd-s'].forEach(id=>document.getElementById(id).textContent='00');return;}
+  const d=Math.floor(diff/864e5);
+  const h=Math.floor((diff%864e5)/36e5);
+  const m=Math.floor((diff%36e5)/6e4);
+  const s=Math.floor((diff%6e4)/1e3);
+  document.getElementById('cd-d').textContent=String(d).padStart(2,'0');
+  document.getElementById('cd-h').textContent=String(h).padStart(2,'0');
+  document.getElementById('cd-m').textContent=String(m).padStart(2,'0');
+  document.getElementById('cd-s').textContent=String(s).padStart(2,'0');
+}
+tick();setInterval(tick,1000);
+
+// ── HERO 3D TILT on mousemove ──
+const hero3d=document.getElementById('hero3d');
+document.querySelector('.hero').addEventListener('mousemove',e=>{
+  const rect=e.currentTarget.getBoundingClientRect();
+  const rx=((e.clientY-rect.top)/rect.height-0.5)*12;
+  const ry=((e.clientX-rect.left)/rect.width-0.5)*-12;
+  hero3d.style.transform=`perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+  hero3d.style.transition='transform 0.1s ease';
+});
+document.querySelector('.hero').addEventListener('mouseleave',()=>{
+  hero3d.style.transform='perspective(800px) rotateX(0) rotateY(0)';
+  hero3d.style.transition='transform 0.8s cubic-bezier(0.23,1,0.32,1)';
+});
+
+// ── SCROLL REVEAL ──
+const revEls=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:0.1});
+revEls.forEach(el=>obs.observe(el));
+
+// ── QR CODE ──
+(function(){
+  const script = document.createElement('script');
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+  script.onload = function(){
+    const placeholder = document.getElementById('qr-canvas');
+    const wrapper = placeholder.parentNode;
+    placeholder.remove();
+    const div = document.createElement('div');
+    div.id = 'qr-output';
+    wrapper.insertBefore(div, wrapper.querySelector('.qr-hint'));
+    new QRCode(div, {
+      text: 'https://maps.app.goo.gl/PYqjhV2SZY3Ekq7v6',
+      width: 120, height: 120,
+      colorDark: '#1a1010',
+      colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.H
+    });
+    // Style the generated element
+    const gen = div.querySelector('canvas') || div.querySelector('img');
+    if(gen){
+      gen.style.borderRadius = '10px';
+      gen.style.display = 'block';
+    }
+    div.style.background = '#fff';
+    div.style.padding = '10px';
+    div.style.borderRadius = '12px';
+    div.style.boxShadow = '0 8px 24px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,168,83,0.2)';
+    div.style.display = 'inline-block';
+  };
+  document.head.appendChild(script);
+})();
+
+document.querySelectorAll('.event-card,.cd-unit').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const rx=((e.clientY-r.top)/r.height-0.5)*16;
+    const ry=((e.clientX-r.left)/r.width-0.5)*-16;
+    card.style.transform=`perspective(600px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-8px)`;
+    card.style.transition='transform 0.1s ease';
+  });
+  card.addEventListener('mouseleave',()=>{
+    card.style.transform='';
+    card.style.transition='transform 0.6s cubic-bezier(0.23,1,0.32,1)';
+  });
+});
+</script>
+</body>
+</html>
