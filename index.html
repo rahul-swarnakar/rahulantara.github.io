@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul & Antara - Wedding Celebration</title>
+    <meta name="description" content="Join us in celebrating the love and marriage of Rahul and Antara. Find event details, schedule, and location map.">
+    
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pinyon+Script&display=swap" rel="stylesheet">
+    
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- FontAwesome for elegant icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#home" class="logo">Rahul & Antara</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#event" class="nav-link">Event</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <!-- Hero Slideshow Background -->
+        <div class="hero-slideshow">
+            <div class="slide active" style="background-image: url('assets/rahul_antara_1.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/rahul_antara_2.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/rahul_antara_3.jpg');"></div>
+            <div class="slide" style="background-image: url('assets/rahul_antara_4.jpg');"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-subtitle fade-in">Save the Date</span>
+            <h1 class="hero-title fade-in">Rahul & Antara</h1>
+            <p class="hero-tagline fade-in">Are getting married</p>
+            
+            <div class="countdown-container fade-in" id="countdown" data-date="2026-08-07T09:00:00">
+                <div class="countdown-item">
+                    <span id="days" class="countdown-number">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours" class="countdown-number">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes" class="countdown-number">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds" class="countdown-number">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+            
+            <div class="hero-details fade-in">
+                <p><i class="far fa-calendar-alt"></i> August 7-8, 2026 &bull; Suri, Birbhum</p>
+            </div>
+            
+            <a href="#event" class="btn btn-gold fade-in">View Schedule</a>
+        </div>
+    </section>
+
+    <!-- Event & Schedule Section -->
+    <section id="event" class="events section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="script-font">Join Us</span>
+                <h2>Wedding Schedule</h2>
+                <div class="divider"><i class="fas fa-calendar-alt"></i></div>
+            </div>
+            
+            <div class="event-cards">
+                <!-- Marriage Registry -->
+                <div class="event-card reveal-on-scroll">
+                    <div class="event-card-header registry" style="background: linear-gradient(135deg, #2A4A3B 0%, #0F2E23 100%); color: var(--gold-light);">
+                        <i class="fas fa-file-signature event-icon"></i>
+                        <h3>Marriage Registry</h3>
+                    </div>
+                    <div class="event-card-body">
+                        <p class="time"><i class="far fa-clock"></i> Time: To be decided</p>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Suri, Birbhum</p>
+                        <p class="details">Please join us for our official marriage registration ceremony. Your blessings as we sign our new beginning are highly valued.</p>
+                        <span class="dress-code">Date: June 31, 2026</span>
+                    </div>
+                </div>
+
+                <!-- Haldi Ceremony -->
+                <div class="event-card reveal-on-scroll">
+                    <div class="event-card-header haldi">
+                        <i class="fas fa-mortar-pestle event-icon"></i>
+                        <h3>Haldi Ceremony</h3>
+                    </div>
+                    <div class="event-card-body">
+                        <p class="time"><i class="far fa-clock"></i> 9:00 AM onwards</p>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Langulia, Suri, Birbhum</p>
+                        <p class="details">Let's smear the couple with love, music, and turmeric paste! Join us in your favorite yellow attire to kick off the celebrations.</p>
+                        <span class="dress-code">Date: August 7, 2026</span>
+                    </div>
+                </div>
+
+                <!-- Wedding Ceremony -->
+                <div class="event-card reveal-on-scroll">
+                    <div class="event-card-header wedding">
+                        <i class="fas fa-church event-icon"></i>
+                        <h3>Wedding Ceremony</h3>
+                    </div>
+                    <div class="event-card-body">
+                        <p class="time"><i class="far fa-clock"></i> 7:00 PM onwards</p>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Sainthia, Birbhum</p>
+                        <p class="details">Witness the sacred rituals and the exchange of vows as Rahul & Antara tie the knot under the blessings of family and friends.</p>
+                        <span class="dress-code">Date: August 7, 2026</span>
+                    </div>
+                </div>
+
+                <!-- Reception Ceremony -->
+                <div class="event-card reveal-on-scroll">
+                    <div class="event-card-header reception">
+                        <i class="fas fa-glass-cheers event-icon"></i>
+                        <h3>Reception Ceremony</h3>
+                    </div>
+                    <div class="event-card-body">
+                        <p class="time"><i class="far fa-clock"></i> 7:00 PM onwards</p>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Langulia, Suri, Birbhum</p>
+                        <p class="details">Please join us for a grand banquet of traditional dinner, music, and celebratory cheers as we start our married life together.</p>
+                        <span class="dress-code">Date: August 8, 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="gallery" class="gallery section-padding dark-bg">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="script-font">Moments</span>
+                <h2>Our Gallery</h2>
+                <div class="divider"><i class="fas fa-camera"></i></div>
+            </div>
+
+            <!-- Gallery Category Tabs -->
+            <div class="gallery-filters reveal-on-scroll">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="prewedding">Pre-Wedding</button>
+                <button class="filter-btn" data-filter="wedding">Wedding</button>
+                <button class="filter-btn" data-filter="reception">Reception</button>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item reveal-on-scroll show" data-category="prewedding">
+                    <img src="assets/rahul_antara_1.jpg" alt="Rahul and Antara Snow Portrait">
+                    <div class="gallery-hover">
+                        <span class="gallery-text">Snow Mountains</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item reveal-on-scroll show" data-category="prewedding">
+                    <img src="assets/rahul_antara_2.jpg" alt="Rahul and Antara Lotus Portrait">
+                    <div class="gallery-hover">
+                        <span class="gallery-text">Lotus Celebration</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item reveal-on-scroll show" data-category="prewedding">
+                    <img src="assets/rahul_antara_3.jpg" alt="Rahul and Antara Sofa Portrait">
+                    <div class="gallery-hover">
+                        <span class="gallery-text">Cozy Moments</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item reveal-on-scroll show" data-category="prewedding">
+                    <img src="assets/rahul_antara_4.jpg" alt="Rahul and Antara Restaurant Portrait">
+                    <div class="gallery-hover">
+                        <span class="gallery-text">Together Always</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon placeholder for Wedding tab -->
+                <div class="gallery-item gallery-placeholder reveal-on-scroll" data-category="wedding">
+                    <div class="placeholder-card">
+                        <i class="fas fa-heart placeholder-icon"></i>
+                        <h3>Wedding Moments</h3>
+                        <p>Our wedding memories will be updated here after August 7, 2026! 🌸</p>
+                    </div>
+                </div>
+
+                <!-- Coming Soon placeholder for Reception tab -->
+                <div class="gallery-item gallery-placeholder reveal-on-scroll" data-category="reception">
+                    <div class="placeholder-card">
+                        <i class="fas fa-glass-cheers placeholder-icon"></i>
+                        <h3>Reception Moments</h3>
+                        <p>Our reception celebration snaps will be updated here after August 8, 2026! ✨</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="contact section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="script-font">Get in Touch</span>
+                <h2>Contact Us</h2>
+                <div class="divider"><i class="fas fa-envelope-open-text"></i></div>
+            </div>
+            
+            <div class="contact-layout">
+                <!-- Left details column -->
+                <div class="contact-info reveal-on-scroll">
+                    <!-- Address Card -->
+                    <div class="contact-card">
+                        <div class="contact-card-icon"><i class="fas fa-map-marked-alt"></i></div>
+                        <div class="contact-card-text">
+                            <h3>Wedding Venue Address</h3>
+                            <p><strong>Langulia</strong></p>
+                            <p>Suri, Birbhum, West Bengal, India</p>
+                            <a href="https://maps.google.com/?q=Langulia+Suri+Birbhum+West+Bengal+India" target="_blank" class="directions-link">
+                                Get Directions <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Contact Card -->
+                    <div class="contact-card">
+                        <div class="contact-card-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="contact-card-text">
+                            <h3>Mobile Contacts</h3>
+                            <div class="phone-item">
+                                <span>Call / WhatsApp:</span>
+                                <a href="tel:+919734162949" class="phone-link">+91 97341 62949</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Map column -->
+                <div class="contact-map reveal-on-scroll">
+                    <div class="map-card">
+                        <h3>Venue Location Map</h3>
+                        <div class="map-container">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14619.646865239162!2d87.51901844999999!3d23.9090623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f97977464df869%3A0xb3388ad177651a02!2sSuri%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1719500000000!5m2!1sen!2sin" 
+                                width="100%" 
+                                height="320" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <span class="script-font footer-logo">Rahul & Antara</span>
+            <p class="footer-tagline">We can't wait to celebrate our wedding days with you.</p>
+            <div class="social-links">
+                <a href="https://maps.google.com/?q=Langulia+Suri+Birbhum+West+Bengal+India" target="_blank" aria-label="Venue location"><i class="fas fa-map-marked-alt"></i></a>
+                <a href="tel:+919734162949" aria-label="Call bride/groom"><i class="fas fa-phone"></i></a>
+            </div>
+            <p class="copyright">&copy; 2026 Rahul & Antara. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Enlarged gallery view">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+
+    <!-- JavaScript code -->
+    <script src="script.js"></script>
+</body>
+</html>
