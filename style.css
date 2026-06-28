@@ -793,10 +793,10 @@ h1, h2, h3, h4 {
     min-height: 320px;
 }
 
-.photography-partner img:hover {
-    transform: scale(1.02);
+.photography-partner-full img:hover {
+    transform: scale(1.015);
     border-color: var(--gold) !important;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5) !important;
+    opacity: 0.9;
 }
 
 /* Footer Details */
