@@ -793,6 +793,12 @@ h1, h2, h3, h4 {
     min-height: 320px;
 }
 
+.photography-partner img:hover {
+    transform: scale(1.02);
+    border-color: var(--gold) !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5) !important;
+}
+
 /* Footer Details */
 .footer {
     background-color: var(--primary-dark);
